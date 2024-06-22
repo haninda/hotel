@@ -2,8 +2,8 @@
 
 Berikut adalah alur pembuatan website untuk manajemen hotel yang mencakup halaman-halaman utama serta interaksi antara halaman-halaman tersebut:
 ### index.php
-1. **Tampil Rooms** **DONE**
-   - Halaman utama yang menampilkan daftar kamar yang tersedia beserta informasi singkat seperti jenis kamar, harga, ketersediaan, dan deskripsi.
+1. **Tampil Rooms** 
+   - Halaman utama yang menampilkan daftar kamar yang tersedia beserta informasi singkat seperti jenis kamar, harga, ketersediaan, dan deskripsi. **DONE**
    - Setiap kamar memiliki tombol atau tautan untuk melakukan pemesanan.
 
 2. **Booking**
@@ -11,8 +11,8 @@ Berikut adalah alur pembuatan website untuk manajemen hotel yang mencakup halama
    - Pengguna diarahkan ke halaman `booking.php` dengan mengirimkan `room_id` sebagai parameter.
 
 ### rooms.php
-1. **Tampil Rooms** **DONE**
-   - Halaman untuk menampilkan semua kamar yang tersedia dengan informasi yang sama seperti `index.php`.
+1. **Tampil Rooms** 
+   - Halaman untuk menampilkan semua kamar yang tersedia dengan informasi yang sama seperti `index.php`. **DONE**
    - Pengguna bisa memilih kamar untuk melakukan pemesanan.
 
 2. **Pilih Room**
