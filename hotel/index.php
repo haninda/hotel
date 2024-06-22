@@ -107,8 +107,9 @@ include 'header.php';
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
-                        <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">Hotelier</span></h1>
-                        <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                        <h1 class="mb-4">Selamat Datang di <span class="text-primary text-uppercase">SVT Hotel</span></h1>
+                        <h4 class="mb-2">Kemewahan dan Kenyamanan di Jantung Kota</h4>
+                        <p class="mb-4">Mengundang anda untuk merasakan perpaduan sempurna antara kenyamanan modern dan keanggunan klasik di jantung kota. Terletak strategis di tengah pusat bisnis dan hiburan, hotel kami menawarkan akses mudah ke berbagai destinasi utama sambil tetap menjadi oase ketenangan dan kemewahan.</p>
                         <a class="btn btn-primary py-3 px-5 mt-2" href="">Explore More</a>
                     </div>
                     <div class="col-lg-6">
@@ -141,17 +142,14 @@ include 'header.php';
                     <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
                 </div>
                 <div class="row g-4">
-                    <?php while ($data = mysqli_fetch_array($query)) { ?>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="img/room-1.jpg" alt="">
-                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Rp<?php echo number_format($data['price'], 0, ',', '.'); ?>/Night</small>
-
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0"><?php echo $data['room_type']; ?></h5>
+                                    <h5 class="mb-0">Junior Suite</h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -160,21 +158,63 @@ include 'header.php';
                                         <small class="fa fa-star text-primary"></small>
                                     </div>
                                 </div>
-                                <div class="d-flex mb-3">
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i><?php echo $data['bed']; ?> Bed</small>
-                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i><?php echo $data['bath']; ?> Bath</small>
-                                    <?php if ($data['wifi'] == 1) { ?>
-                                        <small class="border-end me-3 pe-3"><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
-                                    <?php } ?>
-                                </div>
-                                <p class="text-body mb-3"><?php echo $data['description']; ?></p>
+                                <p class="text-body mb-3">Suasana yang nyaman dan dilengkapi dengan perpaduan warna yang dinami.Pengalaman mewah dalam kenyamanan sempurna</p>
                                 <div class="d-flex justify-content-between">
+                                    <!-- <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a> -->
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
                                     <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <?php } ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/room-2.jpg" alt="">
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">Executive Suite</h5>
+                                    <div class="ps-2">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                </div>
+                                <p class="text-body mb-3">Menawarkan ruang yang lebih luas, dan ruang tamu yang membuatnya sempurna untuk pelancong bisnis atau rekreasi</p>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="room-item shadow rounded overflow-hidden">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="img/room-3.jpg" alt="">
+                            </div>
+                            <div class="p-4 mt-2">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <h5 class="mb-0">Super Deluxe</h5>
+                                    <div class="ps-2">
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                        <small class="fa fa-star text-primary"></small>
+                                    </div>
+                                </div>
+                                <p class="text-body mb-3">Kamar dengan fasilitas yang berkualitas bertaraf internasional. Desain yang Modern dan Elegan memberikan kenyaman yang tidak terlupakan</p>
+                                <div class="d-flex justify-content-between">
+                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -195,8 +235,8 @@ include 'header.php';
                                     <i class="fa fa-hotel fa-2x text-primary"></i>
                                 </div>
                             </div>
-                            <h5 class="mb-3">Rooms & Appartment</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <h5 class="mb-3">Rooms</h5>
+                            <p class="text-body mb-0" style="text-align: justify;">Nikmati pilihan kamar mewah kami yang dirancang untuk memberikan kenyamanan maksimal dan suasana elegan. Setiap kamar mendapatkan pemandangan menakjubkan yang dapat dinikmati dari jendela kamar Anda</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
@@ -207,7 +247,7 @@ include 'header.php';
                                 </div>
                             </div>
                             <h5 class="mb-3">Food & Restaurant</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0" style="text-align: justify;">Menawarkan beragam hidangan lezat, mulai dari masakan lokal otentik hingga kreasi internasional yang inovatif. Dengan suasana yang hangat dan pelayanan yang ramah, setiap santapan di restoran kami adalah pengalaman kuliner yang tak terlupakan</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
@@ -218,7 +258,7 @@ include 'header.php';
                                 </div>
                             </div>
                             <h5 class="mb-3">Spa & Fitness</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0" style="text-align: justify;">Manjakan diri anda di spa kami yang tenang, tempat perawatan holistik dan pijat menyeluruh akan meremajakan tubuh dan pikiran anda. Lengkapi pengalaman dengan fasilitas kebugaran kami yang canggih untuk menjaga kebugaran anda selama menginap</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
@@ -229,7 +269,7 @@ include 'header.php';
                                 </div>
                             </div>
                             <h5 class="mb-3">Sports & Gaming</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0" style="text-align: justify;">Nikmati beragam fasilitas olahraga dan hiburan kami, termasuk kolam renang, lapangan tenis, dan ruang permainan yang dilengkapi dengan permainan video terbaru dan meja biliar. Kami menyediakan aktivitas yang sesuai untuk semua usia dan minat</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
@@ -240,7 +280,7 @@ include 'header.php';
                                 </div>
                             </div>
                             <h5 class="mb-3">Event & Party</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0" style="text-align: justify;">Tempat yang sempurna untuk menyelenggarakan berbagai bidang acara spesial. Dengan ruang serbaguna yang elegan dan tim penyelenggara acara yang profesional, kami menjamin setiap detail acara Anda akan dikelola dengan sempurna, dari pesta pribadi hingga konferensi bisnis</p>
                         </a>
                     </div>
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
@@ -251,7 +291,7 @@ include 'header.php';
                                 </div>
                             </div>
                             <h5 class="mb-3">GYM & Yoga</h5>
-                            <p class="text-body mb-0">Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet diam sed stet lorem.</p>
+                            <p class="text-body mb-0" style="text-align: justify;">Tingkatkan rutinitas kebugaran anda di pusat kebugaran kami yang lengkap, atau temukan keseimbangan dan ketenangan di kelas yoga kami.Dengan peralatan modern dan instruktur berpengalaman, kami memastikan anda tetap aktif dan sehat selama menginap</p>
                         </a>
                     </div>
                 </div>
@@ -260,3 +300,4 @@ include 'header.php';
         <!-- Service End -->
 
 <?php include 'footer.php';?>
+
