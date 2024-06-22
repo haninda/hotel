@@ -2,7 +2,7 @@
 
 Berikut adalah alur pembuatan website untuk manajemen hotel yang mencakup halaman-halaman utama serta interaksi antara halaman-halaman tersebut:
 ### index.php
-1. **Tampil Rooms**
+1. **Tampil Rooms** **DONE**
    - Halaman utama yang menampilkan daftar kamar yang tersedia beserta informasi singkat seperti jenis kamar, harga, ketersediaan, dan deskripsi.
    - Setiap kamar memiliki tombol atau tautan untuk melakukan pemesanan.
 
@@ -11,7 +11,7 @@ Berikut adalah alur pembuatan website untuk manajemen hotel yang mencakup halama
    - Pengguna diarahkan ke halaman `booking.php` dengan mengirimkan `room_id` sebagai parameter.
 
 ### rooms.php
-1. **Tampil Rooms**
+1. **Tampil Rooms** **DONE**
    - Halaman untuk menampilkan semua kamar yang tersedia dengan informasi yang sama seperti `index.php`.
    - Pengguna bisa memilih kamar untuk melakukan pemesanan.
 
@@ -40,7 +40,6 @@ Berikut adalah alur pembuatan website untuk manajemen hotel yang mencakup halama
 Untuk menambahkan halaman `profile.php` dalam alur pembuatan website hotel, berikut adalah rinciannya:
 
 ### profile.php
-
 1. **Detail Data Pengguna**
    - Halaman ini akan menampilkan informasi detail tentang pengguna, seperti nama, email, nomor telepon, dan mungkin informasi tambahan tergantung pada kebutuhan bisnis Anda.
    - Informasi ini dapat diambil dari tabel `guests` berdasarkan `guest_id` yang tersimpan dalam `$_SESSION`.
@@ -54,4 +53,4 @@ Untuk menambahkan halaman `profile.php` dalam alur pembuatan website hotel, beri
    - Setiap pemesanan akan memiliki tautan ke halaman `detail_booking.php` dengan menyertakan `booking_id` sebagai parameter untuk melihat rincian pemesanan tersebut.
   
 Kalau belum sign in g bisa booking
-
+### sign_up.php dan process_sign_up.php **DONE**
