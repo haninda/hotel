@@ -1,5 +1,4 @@
-**SETIAP UPLOAD FILE ISI ISSUES
-**
+**SETIAP UPLOAD FILE ISI BAGIAN ISSUESS KASI KETERANGANNYA**
 
 Berikut adalah alur pembuatan website untuk manajemen hotel yang mencakup halaman-halaman utama serta interaksi antara halaman-halaman tersebut:
 ### index.php
