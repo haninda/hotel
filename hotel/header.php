@@ -56,7 +56,7 @@ session_start();
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
                         <a href="index.html" class="navbar-brand d-block d-lg-none">
-                            <h1 class="m-0 text-primary text-uppercase">Hotelier</h1>
+                            <h1 class="m-0 text-primary text-uppercase">SVT Hotel</h1>
                         </a>
                         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                             <span class="navbar-toggler-icon"></span>
@@ -86,3 +86,42 @@ session_start();
             </div>
         </div>
         <!-- Header End -->
+    </div>
+
+    <!-- Tambahkan script berikut di akhir file HTML sebelum penutup tag body -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ambil semua elemen menu
+            var menuItems = document.querySelectorAll('.navbar-nav .nav-item');
+
+            // Tambahkan event listener untuk setiap item menu
+            menuItems.forEach(function(item) {
+                item.addEventListener('click', function() {
+                    // Hapus kelas 'active' dari semua item
+                    menuItems.forEach(function(i) {
+                        i.classList.remove('active');
+                    });
+
+                    // Tambahkan kelas 'active' ke item yang diklik
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // Tambahkan event listener ke elemen dengan teks "SVT Hotel"
+        document.querySelectorAll('.navbar-brand').forEach(function(brand) {
+            brand.addEventListener('click', function(e) {
+                // Cegah tindakan default
+                e.preventDefault();
+                // Arahkan ke index.php
+                window.location.href = 'index.php';
+            });
+        });
+    </script>
+
+    <!-- Include JS Libraries (Optional) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
