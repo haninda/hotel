@@ -112,11 +112,11 @@ include 'header.php';
                 <div class="wow fadeInUp" data-wow-delay="0.6s">
                     <h3>Booking Details</h3>
                     <?php if (count($bookings) > 0): 
-                        $nomor=1;?>
+                        ?>
                         <ul class="list-group">
                             <?php foreach ($bookings as $booking): ?>
                             <li class="list-group-item">
-                                Booking #<?php echo $nomor++; ?> 
+                                Booking #
                                 <a href="booking_detail.php?booking_id=<?php echo htmlspecialchars($booking['booking_id']); ?>" class="btn btn-primary btn-sm float-end">View Details</a>
                             </li>
                             <?php endforeach; ?>
