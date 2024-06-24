@@ -54,53 +54,6 @@ include 'header.php';
         </div>
         <!-- Carousel End -->
 
-
-        <!-- Booking Start -->
-        <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="bg-white shadow" style="padding: 35px;">
-                    <div class="row g-2">
-                        <div class="col-md-10">
-                            <div class="row g-2">
-                                <div class="col-md-3">
-                                    <div class="date" id="date1" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input"
-                                            placeholder="Check in" data-target="#date1" data-toggle="datetimepicker" />
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="date" id="date2" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Check out" data-target="#date2" data-toggle="datetimepicker"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Adult</option>
-                                        <option value="1">Adult 1</option>
-                                        <option value="2">Adult 2</option>
-                                        <option value="3">Adult 3</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-3">
-                                    <select class="form-select">
-                                        <option selected>Child</option>
-                                        <option value="1">Child 1</option>
-                                        <option value="2">Child 2</option>
-                                        <option value="3">Child 3</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-primary w-100">Submit</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Booking End -->
-
-
         <!-- About Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -134,22 +87,25 @@ include 'header.php';
         <!-- About End -->
 
 
-        <!-- Room Start -->
-        <div class="container-xxl py-5">
+       <!-- Room Start -->
+       <div class="container-xxl py-5">
             <div class="container">
                 <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                     <h6 class="section-title text-center text-primary text-uppercase">Our Rooms</h6>
                     <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Rooms</span></h1>
                 </div>
                 <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <?php while ($data = mysqli_fetch_array($query)) { ?>
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="room-item shadow rounded overflow-hidden">
                             <div class="position-relative">
                                 <img class="img-fluid" src="img/room-1.jpg" alt="">
+                                <small class="position-absolute start-0 top-100 translate-middle-y bg-primary text-white rounded py-1 px-3 ms-4">Rp<?php echo number_format($data['price'], 0, ',', '.'); ?>/Night</small>
+
                             </div>
                             <div class="p-4 mt-2">
                                 <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Junior Suite</h5>
+                                    <h5 class="mb-0"><?php echo $data['room_type']; ?></h5>
                                     <div class="ps-2">
                                         <small class="fa fa-star text-primary"></small>
                                         <small class="fa fa-star text-primary"></small>
@@ -158,145 +114,105 @@ include 'header.php';
                                         <small class="fa fa-star text-primary"></small>
                                     </div>
                                 </div>
-                                <p class="text-body mb-3">Suasana yang nyaman dan dilengkapi dengan perpaduan warna yang dinami.Pengalaman mewah dalam kenyamanan sempurna</p>
+                                <div class="d-flex mb-3">
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bed text-primary me-2"></i><?php echo $data['bed']; ?> Bed</small>
+                                    <small class="border-end me-3 pe-3"><i class="fa fa-bath text-primary me-2"></i><?php echo $data['bath']; ?> Bath</small>
+                                    <?php if ($data['wifi'] == 1) { ?>
+                                        <small class="border-end me-3 pe-3"><i class="fa fa-wifi text-primary me-2"></i>Wifi</small>
+                                    <?php } ?>
+                                </div>
+                                <p class="text-body mb-3"><?php echo $data['description']; ?></p>
                                 <div class="d-flex justify-content-between">
-                                    <!-- <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a> -->
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
+                                    <!-- Book Now Link -->
+                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="booking.php?room_id=<?php echo $data['room_id']; ?>">Book Now</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/room-2.jpg" alt="">
-                            </div>
-                            <div class="p-4 mt-2">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Executive Suite</h5>
-                                    <div class="ps-2">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
-                                </div>
-                                <p class="text-body mb-3">Menawarkan ruang yang lebih luas, dan ruang tamu yang membuatnya sempurna untuk pelancong bisnis atau rekreasi</p>
-                                <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="room-item shadow rounded overflow-hidden">
-                            <div class="position-relative">
-                                <img class="img-fluid" src="img/room-3.jpg" alt="">
-                            </div>
-                            <div class="p-4 mt-2">
-                                <div class="d-flex justify-content-between mb-3">
-                                    <h5 class="mb-0">Super Deluxe</h5>
-                                    <div class="ps-2">
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                        <small class="fa fa-star text-primary"></small>
-                                    </div>
-                                </div>
-                                <p class="text-body mb-3">Kamar dengan fasilitas yang berkualitas bertaraf internasional. Desain yang Modern dan Elegan memberikan kenyaman yang tidak terlupakan</p>
-                                <div class="d-flex justify-content-between">
-                                    <a class="btn btn-sm btn-primary rounded py-2 px-4" href="">View Detail</a>
-                                    <a class="btn btn-sm btn-dark rounded py-2 px-4" href="">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
         <!-- Room End -->
 
         <!-- Service Start -->
-        <div class="container-xxl py-5 my-5">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
-                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-hotel fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">Rooms</h5>
-                            <p class="text-body mb-0" style="text-align: justify;">Nikmati pilihan kamar mewah kami yang dirancang untuk memberikan kenyamanan maksimal dan suasana elegan. Setiap kamar mendapatkan pemandangan menakjubkan yang dapat dinikmati dari jendela kamar Anda</p>
-                        </a>
+<div class="container-xxl py-5 my-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Our Services</h6>
+            <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Services</span></h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="service-item rounded">
+                    <div class="service-icon bg-transparent border rounded p-1">
+                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                            <i class="fa fa-hotel fa-2x text-primary"></i>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-utensils fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">Food & Restaurant</h5>
-                            <p class="text-body mb-0" style="text-align: justify;">Menawarkan beragam hidangan lezat, mulai dari masakan lokal otentik hingga kreasi internasional yang inovatif. Dengan suasana yang hangat dan pelayanan yang ramah, setiap santapan di restoran kami adalah pengalaman kuliner yang tak terlupakan</p>
-                        </a>
+                    <h5 class="mb-3">Rooms</h5>
+                    <p class="text-body mb-0" style="text-align: justify;">Nikmati pilihan kamar mewah kami yang dirancang untuk memberikan kenyamanan maksimal dan suasana elegan. Setiap kamar mendapatkan pemandangan menakjubkan yang dapat dinikmati dari jendela kamar Anda</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <a class="service-item rounded">
+                    <div class="service-icon bg-transparent border rounded p-1">
+                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                            <i class="fa fa-utensils fa-2x text-primary"></i>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-spa fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">Spa & Fitness</h5>
-                            <p class="text-body mb-0" style="text-align: justify;">Manjakan diri anda di spa kami yang tenang, tempat perawatan holistik dan pijat menyeluruh akan meremajakan tubuh dan pikiran anda. Lengkapi pengalaman dengan fasilitas kebugaran kami yang canggih untuk menjaga kebugaran anda selama menginap</p>
-                        </a>
+                    <h5 class="mb-3">Food & Restaurant</h5>
+                    <p class="text-body mb-0" style="text-align: justify;">Menawarkan beragam hidangan lezat, mulai dari masakan lokal otentik hingga kreasi internasional yang inovatif. Dengan suasana yang hangat dan pelayanan yang ramah, setiap santapan di restoran kami adalah pengalaman kuliner yang tak terlupakan</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="service-item rounded">
+                    <div class="service-icon bg-transparent border rounded p-1">
+                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                            <i class="fa fa-spa fa-2x text-primary"></i>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-swimmer fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">Sports & Gaming</h5>
-                            <p class="text-body mb-0" style="text-align: justify;">Nikmati beragam fasilitas olahraga dan hiburan kami, termasuk kolam renang, lapangan tenis, dan ruang permainan yang dilengkapi dengan permainan video terbaru dan meja biliar. Kami menyediakan aktivitas yang sesuai untuk semua usia dan minat</p>
-                        </a>
+                    <h5 class="mb-3">Spa & Fitness</h5>
+                    <p class="text-body mb-0" style="text-align: justify;">Manjakan diri anda di spa kami yang tenang, tempat perawatan holistik dan pijat menyeluruh akan meremajakan tubuh dan pikiran anda. Lengkapi pengalaman dengan fasilitas kebugaran kami yang canggih untuk menjaga kebugaran anda selama menginap</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                <a class="service-item rounded">
+                    <div class="service-icon bg-transparent border rounded p-1">
+                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                            <i class="fa fa-swimmer fa-2x text-primary"></i>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-glass-cheers fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">Event & Party</h5>
-                            <p class="text-body mb-0" style="text-align: justify;">Tempat yang sempurna untuk menyelenggarakan berbagai bidang acara spesial. Dengan ruang serbaguna yang elegan dan tim penyelenggara acara yang profesional, kami menjamin setiap detail acara Anda akan dikelola dengan sempurna, dari pesta pribadi hingga konferensi bisnis</p>
-                        </a>
+                    <h5 class="mb-3">Sports & Gaming</h5>
+                    <p class="text-body mb-0" style="text-align: justify;">Nikmati beragam fasilitas olahraga dan hiburan kami, termasuk kolam renang, lapangan tenis, dan ruang permainan yang dilengkapi dengan permainan video terbaru dan meja biliar. Kami menyediakan aktivitas yang sesuai untuk semua usia dan minat</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="service-item rounded">
+                    <div class="service-icon bg-transparent border rounded p-1">
+                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                            <i class="fa fa-glass-cheers fa-2x text-primary"></i>
+                        </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                        <a class="service-item rounded" href="">
-                            <div class="service-icon bg-transparent border rounded p-1">
-                                <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
-                                    <i class="fa fa-dumbbell fa-2x text-primary"></i>
-                                </div>
-                            </div>
-                            <h5 class="mb-3">GYM & Yoga</h5>
-                            <p class="text-body mb-0" style="text-align: justify;">Tingkatkan rutinitas kebugaran anda di pusat kebugaran kami yang lengkap, atau temukan keseimbangan dan ketenangan di kelas yoga kami.Dengan peralatan modern dan instruktur berpengalaman, kami memastikan anda tetap aktif dan sehat selama menginap</p>
-                        </a>
+                    <h5 class="mb-3">Event & Party</h5>
+                    <p class="text-body mb-0" style="text-align: justify;">Tempat yang sempurna untuk menyelenggarakan berbagai bidang acara spesial. Dengan ruang serbaguna yang elegan dan tim penyelenggara acara yang profesional, kami menjamin setiap detail acara Anda akan dikelola dengan sempurna, dari pesta pribadi hingga konferensi bisnis</p>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                <a class="service-item rounded">
+                    <div class="service-icon bg-transparent border rounded p-1">
+                        <div class="w-100 h-100 border rounded d-flex align-items-center justify-content-center">
+                            <i class="fa fa-dumbbell fa-2x text-primary"></i>
+                        </div>
                     </div>
-                </div>
+                    <h5 class="mb-3">GYM & Yoga</h5>
+                    <p class="text-body mb-0" style="text-align: justify;">Tingkatkan rutinitas kebugaran anda di pusat kebugaran kami yang lengkap, atau temukan keseimbangan dan ketenangan di kelas yoga kami.Dengan peralatan modern dan instruktur berpengalaman, kami memastikan anda tetap aktif dan sehat selama menginap</p>
+                </a>
             </div>
         </div>
-        <!-- Service End -->
+    </div>
+</div>
+<!-- Service End -->
+
 
 <?php include 'footer.php';?>
